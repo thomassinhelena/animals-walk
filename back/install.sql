@@ -20,4 +20,8 @@ CREATE TABLE walk (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     peoples_id INT FOREIGN KEY NOT NULL,
     pets_id  INT FOREIGN KEY NOT NULL,
-).
+);
+
+SELECT peoples.peopleID, pets.petName
+FROM peoples
+INNER JOIN pets ON peoples.pet_id = pets.pet_id;

@@ -12,9 +12,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    connection.query(`SELECT * FROM peoples
-    WHERE id=${req.params.id}`, (err, result) => {
+    connection.query(`SELECT peoples.pseudo, pets.name
+    FROM peoples
+    INNER JOIN pets ON peoples.id = pets.id`, (err, result) => {
         if(err) {
+            console.error(err);
             res.sendStatus(400);
         };
         res.send(result);
