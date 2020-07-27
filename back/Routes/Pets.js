@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
   connection.query(`INSERT INTO pets (name, sex, birth)
   VALUES ('${req.body.name}', '${req.body.sex}', '${req.body.birth}')`, (err, result) => {
     if(err) {
+      console.error(err);
       res.sendStatus(400);
     };
     res.send(result);
