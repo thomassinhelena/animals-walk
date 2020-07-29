@@ -13,7 +13,7 @@ router.get('/', function (req, res) {
 
 router.get('/:id', (req, res) => {
 	connection.query(`SELECT * FROM pets 
-		Where id=${req.params.id}`, (err, result) => {
+	Where id=${req.params.id}`, (err, result) => {
 		if(err) {
       console.error(err);
       res.sendStatus(400);
