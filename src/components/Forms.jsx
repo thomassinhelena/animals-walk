@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 
 axios.get('http://localhost:3000/Peoples') 
   .then(( response ) => { 
@@ -64,7 +64,7 @@ function Forms() {
         />        
       </div>
     <div className="col-md-6 mb-3">
-      <label for="validationServer03">Name</label>
+      <label htmlFor="validationServer03">Name</label>
       <input
         name="name"
         type="text" 
@@ -74,7 +74,7 @@ function Forms() {
         ref={register} 
       />
       <div className="col-md-6 mb-3">
-        <label for="validationServer04">Sex</label>
+        <label htmlFor="validationServer04">Sex</label>
         <input
           name="sex"
           type="text" 
@@ -85,7 +85,7 @@ function Forms() {
         />
       </div>
       <div className="col-md-6 mb-3">
-        <label for="validationServer05">Birth</label>
+        <label htmlFor="validationServer05">Birth</label>
         <input
           name="birth"
           type="date" 

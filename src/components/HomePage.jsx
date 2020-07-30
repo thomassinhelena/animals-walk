@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState }from 'react';
 
 function HomePage() {
+  const [button, setButton] = useState();
   return(
-    <h4>je sors</h4>
+    <button 
+      type="button"
+      onClick={e => {setButton(e.target.value)}}
+      className="btn btn-primary"><h4>Je sors</h4>
+    </button>
+    
   )
 }
 export default HomePage;

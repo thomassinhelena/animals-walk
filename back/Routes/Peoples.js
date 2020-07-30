@@ -1,5 +1,6 @@
 const express = require('express');
 const connection = require('../conf');
+const { findRenderedDOMComponentWithClass } = require('react-dom/test-utils');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -16,7 +17,6 @@ router.get('/:id', (req, res) => {
   FROM peoples
   INNER JOIN pets ON peoples.id = pets.id`, (err, result) => {
     if(err) {
-      console.error(err);
       res.sendStatus(400);
     };
     res.send(result);
@@ -39,6 +39,18 @@ router.post('/', (req, res) => {
     if(err) {
       res.sendStatus(400);
     };
+    res.send(result);
+  });
+});
+
+router.post('/send-mail',(req, res) => {
+  connection.query(`SELECT email FROM peoples WHERE email != '' `, (err, result) => {
+    if(err) {
+      res.sendStatus(500);
+    };
+    for (let i = 0; i < result.length; i++) {
+      console.log('envoyer un mail à ', result[i].email);
+    }
     res.send(result);
   });
 });
